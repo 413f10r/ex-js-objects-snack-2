@@ -12,8 +12,15 @@
 
 // console.log(hamburger.name); // ?
 // console.log(secondBurger.name); // ?
-// Senza lanciare il codice, riesci a prevedere cosa viene stampato in console ?
+
+
+// Senza lanciare il codice, riesci a prevedere cosa viene stampato in console ? 
+
+// RISULTATO PREVISTO: 2 volte double cheese burger
+
 //     Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
+
+//  RISULTATO :1
 
 
 

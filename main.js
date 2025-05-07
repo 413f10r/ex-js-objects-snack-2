@@ -1,17 +1,11 @@
-// 🏆 Code Question 1
-// const hamburger = { name: "Cheese Burger", weight: 250 };
-// const secondBurger = hamburger;
-// secondBurger.name = 'Double Cheese Burger';
-// secondBurger.weight = 500;
+//  🏆 Code Question 1
+//  const hamburger = { name: "Cheese Burger", weight: 250 };
+//  const secondBurger = hamburger;
+//  secondBurger.name = 'Double Cheese Burger';
+//  secondBurger.weight = 500;
 
+//  console.log(secondBurger.name); // ?
 // console.log(hamburger.name); // ?
-// const hamburger = { name: "Cheese Burger", weight: 250 };
-// const secondBurger = hamburger;
-// secondBurger.name = 'Double Cheese Burger';
-// secondBurger.weight = 500;
-
-// console.log(hamburger.name); // ?
-// console.log(secondBurger.name); // ?
 
 
 // Senza lanciare il codice, riesci a prevedere cosa viene stampato in console ? 
@@ -25,27 +19,31 @@
 
 
 
+//  🏆 Code Question 2
+const hamburger = {
+    name: "Cheese Burger",
+    weight: 250,
+    ingredients: ["Cheese", "Meat", "Bread", "Tomato"]
+};
+
+const secondBurger = { ...hamburger };
+secondBurger.ingredients[0] = "Salad";
+
+console.log(hamburger.ingredients[0]); // ?
+console.log(secondBurger.ingredients[0]); // ?
+
+// P.S.: Ricordati che gli Array, come gli oggetti, 
+// sono dei Reference Type(Tipi di Riferimento)!
 
 
 
-
-
-// 🏆 Code Question 2
-// const hamburger = {
-//     name: "Cheese Burger",
-//     weight: 250,
-//     ingredients: ["Cheese", "Meat", "Bread", "Tomato"]
-// };
-
-// const secondBurger = { ...hamburger };
-// secondBurger.ingredients[0] = "Salad";
-
-// console.log(hamburger.ingredients[0]); // ?
-// console.log(secondBurger.ingredients[0]); // ?
-// P.S.: Ricordati che gli Array, come gli oggetti, sono dei Reference Type(Tipi di Riferimento)!
-// Senza lanciare il codice, riesci a prevedere cosa viene stampato in console ?
-//     Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
-
+// Senza lanciare il codice, riesci a prevedere cosa 
+// viene stampato in console ?
+// 2 volte salad, quindi vengon modificate entrambele copie dell' oggetto.
+//     Quanti oggetti sono stati creati in memoria durante
+//  l'esecuzione di questo codice?
+//  RISULTATO : 2; ma l  arrey di ingredients è solo una refereence, 
+// quindi ne esiste 1 solo e di conseguenza viene modificato anche l arrey origine.
 
 
 
@@ -70,7 +68,10 @@
 
 // const secondBurger = structuredClone(hamburger);
 // const thirdBurger = structuredClone(hamburger);
+
 // Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
+//  RISULTATO : 9 ; 1 oggetto per hambuerger, 1 per secondBurger; e 1 per thirdBurger,
+//  ma aloro volt avranno due copie di oggetti annidati di MAKERR e RESTAURANT  
 
 
 
@@ -80,26 +81,33 @@
 
 
 // 🏆 Code Question 4
-// const chef = {
-//     name: "Chef Hyur",
-//     age: 29,
-//     makeBurger: (num = 1) => {
-//         console.log(`Ecco ${num} hamburger per te!`);
-//     },
-// }
+const chef = {
+    name: "Chef Hyur",
+    age: 29,
+    makeBurger: (num = 1) => {
+        console.log(`Ecco ${num} hamburger per te!`);
+    },
+}
+const copyChef = { ...chef };//SPREAD (SHALLOW COPY)
+console.log(copyChef)
 
-// const restaurant = {
-//     name: "Hyur's Burgers",
-//     address: {
-//         street: 'Main Street',
-//         number: 123,
-//     },
-//     openingDate: new Date(2025, 3, 11),
-//     isOpen: false,
-// };
+const restaurant = {
+    name: "Hyur's Burgers",
+    address: {
+        street: 'Main Street',
+        number: 123,
+    },
+    openingDate: new Date(2025, 3, 11),
+    isOpen: false,
+};
+const copyRestaurant = structuredClone(restaurant)// DEEP COPY 
+console.log(copyRestaurant)
+
 // Qual è il metodo migliore per clonare l’oggetto chef, e perché ?
-//     Qual è il metodo migliore per clonare l’oggetto restaurant, e perché ?
+// usare lo *** SPREAD(...) OPERATOR *** perchè permette di copiare anche la funzione, structuredClone e JSON.parse(JSON.stringify()) non lo permetterebbero
 
+//     Qual è il metodo migliore per clonare l’oggetto restaurant, e perché ?
+// usare *** structuredClone *** per creare una deep copy avendoo ggetti ANNIDATI 
 
 
 
